@@ -9,8 +9,6 @@ function App() {
   return (
     <>
       <HowTo />
-    
-    
       <div>
         {!user ? (
           <Login onLogin={(username) => setUser(username)} />
