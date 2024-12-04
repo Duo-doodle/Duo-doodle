@@ -1,4 +1,4 @@
-
+import HowTo from '../components/HowTo'
 import './App.css'
 
 function App() {
@@ -6,6 +6,7 @@ function App() {
 
   return (
     <>
+      <HowTo />
     
     </>
   )
