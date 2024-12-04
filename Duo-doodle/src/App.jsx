@@ -1,5 +1,5 @@
 
-import HowTo from './src/components/HowTo.js';
+import HowTo from './components/HowTo.js';
 import React, { useState } from "react";
 import Login from "./components/Login";
 
