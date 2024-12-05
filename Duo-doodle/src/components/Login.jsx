@@ -1,15 +1,18 @@
 import React, { useState } from "react";
-import "./../styles/Login.css"; 
+import "./../styles/Login.css";
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const isUsernameValid = username.trim().length > 0;
+  const isPasswordValid = password.length >= 4;
+
   const handleLogin = () => {
-    if (username) {
+    if (isUsernameValid && isPasswordValid) {
       onLogin(username); 
-    } else {
-      alert("Please enter a username");
+      setUsername(""); 
+      setPassword(""); 
     }
   };
 
@@ -23,7 +26,11 @@ function Login({ onLogin }) {
           placeholder="Enter your username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          autoFocus
         />
+        {!isUsernameValid && (
+          <p className="error-message">Username is required.</p>
+        )}
       </div>
       <div className="login-input">
         <label>Password:</label>
@@ -33,8 +40,17 @@ function Login({ onLogin }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        {!isPasswordValid && (
+          <p className="error-message">
+            Password must be at least 4 characters long.
+          </p>
+        )}
       </div>
-      <button className="login-button" onClick={handleLogin}>
+      <button
+        className="login-button"
+        onClick={handleLogin}
+        disabled={!isUsernameValid || !isPasswordValid}
+      >
         Login
       </button>
       <p className="login-message">Welcome to the Drawing Game!</p>
