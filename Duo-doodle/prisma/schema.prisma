@@ -1,0 +1,79 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  email String @unique
+  username String @unique
+  password String
+
+  game Game? @relation(name:"host")
+  games Game[]  
+  drawings Drawing[]
+  guesses Guess[]
+}
+
+enum GameStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+}
+
+model Game {
+  id Int @id @default(autoincrement())
+  name String 
+  status GameStatus
+
+  host User @relation(name:"host", fields:[hostId], references:[id])
+  hostId Int @unique
+  players User[]
+  rounds Round[]
+}
+
+model Round {
+  id Int @id @default(autoincrement())
+  roundNumber Int
+
+  game Game @relation(fields:[gameId], references:[id])
+  gameId Int
+
+  drawing Drawing?
+  drawingId Int
+
+  guesses Guess[]
+}
+
+model Drawing {
+  id Int @id @default(autoincrement())
+  imageUrl String 
+
+  user User @relation(fields:[userId], references:[id])
+  userId Int
+  
+  round Round @relation(fields:[roundId], references:[id])
+  roundId Int @unique
+}
+
+model Guess {
+  id Int @id @default(autoincrement())
+  guessText String
+  isCorrect Boolean
+
+  round Round @relation(fields:[roundId], references:[id])
+  roundId Int
+
+  user User @relation(fields:[userId], references:[id])
+  userId Int
+}
