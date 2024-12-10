@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect } from "react";
+import Canvas from "./Canvas";
+
 
 const DrawingSubmission = () => {
   const Ref = useRef(null)
@@ -43,6 +45,7 @@ const DrawingSubmission = () => {
     <>
       <h1>Your Turn to draw!</h1>
       <h2>Topic: MEADOW</h2>
+      <canvas><Canvas /></canvas>
       <p className ="timer">{timer}</p>
     </>
   );
