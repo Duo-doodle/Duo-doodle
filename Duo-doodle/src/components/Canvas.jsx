@@ -42,26 +42,26 @@ const Canvas = () => {
   }, [draw]);
 
   return (
-    <>
+    <section className="draw-feature">
       <div className="container">
         <section className="tools-board">
           <div className="row">
             <label className="title">Shapes</label>
             <ul className="options">
               <li className="option">
-                <PiRectangle />
+                <PiRectangle  className="icon" />
                 <span>Rectangle</span>
               </li>
               <li className="option">
-                <GoCircle />
+                <GoCircle  className="icon"/>
                 <span>Circle</span>
               </li>
               <li className="option">
-                <IoTriangleOutline />
+                <IoTriangleOutline className="icon"/>
                 <span>Triangle</span>
               </li>
-              <li>
-                <label>
+              <li className="option" >
+                <label id="fill-color">
                   <input type="checkbox"/>
                   Fill Color
                 </label>
@@ -71,37 +71,39 @@ const Canvas = () => {
           <div className="row">
             <label className="title">Options</label>
             <ul className="options">
-              <li className="option">
-                <BsBrush />
+              <li className="option active">
+                <BsBrush className="icon" />
                 <span>Brush</span>
               </li>
               <li className="option">
-                <BsEraser />
+                <BsEraser className="icon" />
                 <span>Eraser</span>
               </li>
-              <li>
+              <li className="option">
                 <input type="range" id="size-slider"/>
               </li>
             </ul>
           </div>
-          <div className="row">
+          <div className="row colors">
             <label className="title">Colors</label>
             <ul className="options">
               <li className="option"></li>
+              <li className="option selected"></li>
               <li className="option"></li>
               <li className="option"></li>
-              <li className="option"></li>
-              <li className="option"></li>
+              <li className="option">
+                <input type="color" id="color-picker" value="#0000ff"/>
+              </li>
             </ul>
           </div>
-          <div className="row">
+          <div className="row buttons">
             <button className="clear-canvas">Clear Canvas</button>
             <button className="save-img">Save Drawing</button>
           </div>
         </section>
         <canvas id="canvas"></canvas>
       </div>
-    </>
+    </section>
   )
 }
 

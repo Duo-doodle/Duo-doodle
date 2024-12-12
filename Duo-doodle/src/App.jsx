@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Login from "./components/Login";
 import AccountCreation from './components/AccountCreation';
 import WaitingRoom from './components/WaitingRoom';
+import DrawingSubmission from './components/DrawingSubmission';
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -11,6 +13,7 @@ function App() {
   return (
     <>
       <HowTo />
+      <DrawingSubmission />
       <div>
         {!user ? (
           <Login onLogin={(username) => setUser(username)} />
