@@ -101,7 +101,7 @@ const Canvas = () => {
             <button className="save-img">Save Drawing</button>
           </div>
         </section>
-        <canvas id="canvas"></canvas>
+          <canvas id="canvas" width={600} height={450}></canvas>
       </div>
     </section>
   )
