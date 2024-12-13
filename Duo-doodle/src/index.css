@@ -12,6 +12,7 @@
 .container{
   display: flex;
   width: 80%;
+  max-width: 600px;
 }
 .tools-board{
   width: 210px;
@@ -90,7 +91,7 @@
   border: 2px solid white;
   transform: translate(-50%, -50%);
 }
-.colors .option:first-chil.selected::before{
+.colors .option:first-child.selected::before{
   background-color:rgb(230, 226, 226);
 }
 .option #color-picker{
