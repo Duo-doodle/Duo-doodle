@@ -7,6 +7,7 @@ import { BsEraser } from "react-icons/bs";
 
 const Canvas = () => {
   const canvasRef = useRef(null);
+  const ctxRef = useRef(null);
   const [selectedTool, setSelectedTool] = useState("brush");
   const [fillColorChecked, setFillColorChecked] = useState(false);
   const [brushWidth, setBrushWidth] = useState(5);
@@ -17,6 +18,10 @@ const Canvas = () => {
 
   const toolSelection = (tool) => {
     setSelectedTool(tool);
+  }
+
+  const clearDrawing = () => {
+    ctxRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
   }
 
   const handleFillColor = (e) => {
@@ -81,7 +86,8 @@ const Canvas = () => {
 
     ctx.putImageData(snapshot, 0, 0);
 
-    if (selectedTool === "brush") {
+    if (selectedTool === "brush" || selectedTool === "eraser") {
+      ctx.strokeStyle = selectedTool === "eraser" ? "#fff" : renderColor;
       ctx.lineTo(e.offsetX, e.offsetY);
       ctx.stroke();
     } else if (selectedTool === "rectangle") {
@@ -94,6 +100,7 @@ const Canvas = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
+    ctxRef.current = context;
 
     const handleMouseDown = (e) => startDrawing(context, e, canvas);
     const handleMouseMove = (e) => draw(context, e);
@@ -141,8 +148,8 @@ const Canvas = () => {
                 <IoTriangleOutline className="icon" />
                 <span>Triangle</span>
               </li>
-              <li className="option" >
-                <label id="fill-color" >
+              <li className="option">
+                <label id="fill-color">
                   <input type="checkbox" onClick={(e) => handleFillColor(e)}/>
                   Fill Color
                 </label>
@@ -214,7 +221,7 @@ const Canvas = () => {
             </ul>
           </div>
           <div className="row buttons">
-            <button className="clear-canvas">Clear Canvas</button>
+            <button className="clear-canvas" onClick={() => clearDrawing()}>Clear Canvas</button>
             <button className="save-img">Save Drawing</button>
           </div>
         </section>
