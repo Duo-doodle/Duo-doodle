@@ -17,8 +17,6 @@ function App() {
             path="/"
             element={
               <>
-                <HowTo />
-                <DrawingSubmission />
                 <div>
                   {!user ? (
                     <Login onLogin={(username) => setUser(username)} />
@@ -29,6 +27,8 @@ function App() {
               </>
             }
           />
+          <Route path="/information" element={<HowTo />} />
+          <Route path="/drawing-submission" element={<DrawingSubmission />} />
           <Route path="/guesser" element={<GuesserPage />} />
           <Route path="/results" element={<ResultsPage />} />
         </Routes>
