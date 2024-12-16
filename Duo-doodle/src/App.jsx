@@ -5,6 +5,8 @@ import Login from "./components/Login";
 import DrawingSubmission from "./components/DrawingSubmission.jsx";
 import GuesserPage from "./components/GuesserPage.jsx";
 import ResultsPage from "./components/ResultsPage.jsx";
+import AccountCreation from "./components/AccountCreation.jsx";
+import Lobby from "./components/WaitingRoom.jsx";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -28,6 +30,8 @@ function App() {
             }
           />
           <Route path="/information" element={<HowTo />} />
+          <Route path="/account-creation" element={<AccountCreation />} />
+          <Route path="/lobby" element={<Lobby />} />
           <Route path="/drawing-submission" element={<DrawingSubmission />} />
           <Route path="/guesser" element={<GuesserPage />} />
           <Route path="/results" element={<ResultsPage />} />
