@@ -44,7 +44,7 @@ const DrawingSubmission = () => {
   return (
     <>
       <h1>Your Turn to draw!</h1>
-      <h2>Topic: MEADOW</h2>
+      <h2>Topic: Cat</h2>
       <Canvas />
       <p className ="timer">{timer}</p>
     </>

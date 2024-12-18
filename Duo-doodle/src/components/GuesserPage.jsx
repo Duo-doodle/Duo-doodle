@@ -12,27 +12,27 @@ const GuesserPage = () => {
   const [timer, setTimer] = useState(30); 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
+  // useEffect(() => {
+  //   const canvas = canvasRef.current;
+  //   const context = canvas.getContext("2d");
 
     
-    socket.on("drawing-data", (data) => {
-      const { x, y, type } = data;
-      if (type === "start") {
-        context.beginPath();
-        context.moveTo(x, y);
-      } else if (type === "draw") {
-        context.lineTo(x, y);
-        context.stroke();
-      }
-    });
+  //   socket.on("drawing-data", (data) => {
+  //     const { x, y, type } = data;
+  //     if (type === "start") {
+  //       context.beginPath();
+  //       context.moveTo(x, y);
+  //     } else if (type === "draw") {
+  //       context.lineTo(x, y);
+  //       context.stroke();
+  //     }
+  //   });
 
     
-    return () => {
-      socket.off("drawing-data");
-    };
-  }, []);
+  //   return () => {
+  //     socket.off("drawing-data");
+  //   };
+  // }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -66,7 +66,13 @@ const GuesserPage = () => {
   return (
     <div style={{ textAlign: "center", padding: "20px" }}>
       <h1>Guess the Drawing</h1>
-      <canvas ref={canvasRef} width={500} height={400} style={{ border: "1px solid black" }}></canvas>
+      {/* <canvas ref={canvasRef} width={500} height={400} style={{ border: "1px solid black" }}></canvas> */}
+      <video
+        width={500}
+        height={400}
+        style={{border: "1px solid black" }}
+        src=""
+        ></video>
       <p>Time Remaining: {timer} seconds</p>
       <div>
         <input
