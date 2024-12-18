@@ -8,6 +8,8 @@ import ResultsPage from "./components/ResultsPage.jsx";
 import AccountCreation from "./components/AccountCreation.jsx";
 import Lobby from "./components/WaitingRoom.jsx";
 
+
+
 function App() {
   const [user, setUser] = useState(null);
 

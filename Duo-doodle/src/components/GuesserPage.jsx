@@ -1,14 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import io from "socket.io-client";
+import "./../styles/GuesserPage.css"; 
 
-const socket = io("http://localhost:3000"); 
+const socket = io("http://localhost:3000");
 
 const GuesserPage = () => {
   const canvasRef = useRef(null);
   const [guess, setGuess] = useState("");
   const [wrongAnswers, setWrongAnswers] = useState([]);
-  const [correctAnswer, setCorrectAnswer] = useState("Cat"); 
+  const [correctAnswer, setCorrectAnswer] = useState(""); 
   const [timer, setTimer] = useState(30); 
   const navigate = useNavigate();
 
@@ -39,7 +40,6 @@ const GuesserPage = () => {
       setTimer((prev) => prev - 1);
     }, 1000);
 
-    
     if (timer === 0) {
       navigate("/results", {
         state: {
@@ -64,28 +64,29 @@ const GuesserPage = () => {
   };
 
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
-      <h1>Guess the Drawing</h1>
-      {/* <canvas ref={canvasRef} width={500} height={400} style={{ border: "1px solid black" }}></canvas> */}
+    <div className="holographic-background">
+      <div className="guesser-container">
+        <h1>Guess the Drawing</h1>
+        {/* <canvas ref={canvasRef} width={500} height={400} style={{ border: "1px solid black" }}></canvas> */}
       <video
         width={500}
         height={400}
         style={{border: "1px solid black" }}
         src=""
         ></video>
-      <p>Time Remaining: {timer} seconds</p>
-      <div>
-        <input
-          type="text"
-          value={guess}
-          onChange={(e) => setGuess(e.target.value)}
-          placeholder="Enter your guess"
-        />
-        <button onClick={handleGuessSubmit}>Submit Guess</button>
+        <p>Time Remaining: {timer} seconds</p>
+        <div>
+          <input
+            type="text"
+            value={guess}
+            onChange={(e) => setGuess(e.target.value)}
+            placeholder="Enter your guess"
+          />
+          <button onClick={handleGuessSubmit}>Submit Guess</button>
+        </div>
       </div>
     </div>
   );
 };
-
 
 export default GuesserPage;
