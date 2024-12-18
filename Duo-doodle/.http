@@ -1,0 +1,37 @@
+@host = http://localhost:3000
+
+### Register new account
+POST {{host}}/register
+Content-Type: application/json
+
+{
+  "username": "FakeUser",
+  "email": "fakeuser@mail.com",
+  "password": "fakeuser"
+}
+
+### Login
+# @name login
+POST {{host}}/login
+Content-Type: application/json
+
+{
+  "email": "fakeuser@mail.com",
+  "password": "fakeuser"
+}
+
+### Get all subjects
+@token = {{login.response.body.token}}
+GET {{host}}/subjects
+
+### Add a subject
+POST {{host}}/subjects
+Content-Type: application/json
+
+{
+  "text": "Table",
+  "description": "a type of furniture"
+}
+
+### Get user information
+GET {{host}}/user 

@@ -1,5 +1,4 @@
 const router = require("express").Router()
-module.exports = router
 
 const JWT_SECRET = process.env.JWT_SECRET
 const jwt = require("jsonwebtoken")
@@ -11,7 +10,7 @@ const createToken = (id) => {
 
 router.use(async(req, res, next) => {
   const userHeader = req.headers.authorization
-  const token = userHeader.slice(7)
+  const token = userHeader?.slice(7)
   if (!token) {
     return next()
   }
@@ -37,7 +36,7 @@ router.post("/register", async(req, res, next) => {
   }
 })
 
-router.post('login', async(req, res, next) => {
+router.post('/login', async(req, res, next) => {
   const {email, password } = req.body
   try {
     const logedInUser = await prisma.user.login(email, password)
