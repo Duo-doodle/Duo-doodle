@@ -43,7 +43,7 @@ const DrawingSubmission = () => {
     <div className="holographic-background">
       <div className="drawing-container">
         <h1>Your Turn to Draw!</h1>
-        <h2>Topic: MEADOW</h2>
+        <h2>Topic: Cat</h2>
         <Canvas />
         <p className="timer">{timer}</p>
       </div>

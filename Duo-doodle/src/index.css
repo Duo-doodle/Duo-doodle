@@ -6,13 +6,19 @@
   align-items: center;
   justify-content: center;
   min-height: 50vh;
-  background-color: aqua;
+  background: linear-gradient(
+    135deg,
+    #ff9a9e 0%,
+    #fad0c4 30%,
+    #fbc2eb 60%,
+    #a18cd1 100%
+  );
   border-radius: 7px;
+  width: 900px;
 }
 .container{
   display: flex;
   width: 80%;
-  max-width: 600px;
 }
 .tools-board{
   width: 210px;
@@ -120,8 +126,8 @@
   background-color: lightsteelblue;
 }
 .buttons .save-img{
-  background-color:dodgerblue;
-  border: 1px solid dodgerblue
+  background-color:#662af2;
+  border: 1px solid #3201a2;
 }
 .container> #canvas:nth-child(2){
   flex:1;

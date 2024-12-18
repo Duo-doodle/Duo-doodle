@@ -21,8 +21,7 @@
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   text-align: center;
-  max-width: 600px;
-  width: 90%;
+  width: fit-content;
 }
 
 .drawing-container h1 {
@@ -40,6 +39,7 @@
   font-size: 1.2rem;
   margin-top: 20px;
   color: #333;
+  font-size: xx-large;
 }
 
 
