@@ -1,0 +1,61 @@
+
+.holographic-background {
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #ff9a9e 0%,
+    #fad0c4 30%,
+    #fbc2eb 60%,
+    #a18cd1 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+.drawing-container {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+}
+
+.drawing-container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.drawing-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.timer {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  color: #333;
+}
+
+
+#timer-alert {
+  color: red;
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
