@@ -1,0 +1,56 @@
+
+.holographic-background {
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #ff9a9e 0%,
+    #fad0c4 30%,
+    #fbc2eb 60%,
+    #a18cd1 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+.guesser-container {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+}
+
+.guesser-container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+canvas {
+  margin: 20px auto;
+  display: block;
+}
+
+.guesser-container input {
+  padding: 10px;
+  margin-right: 10px;
+  width: calc(100% - 120px);
+  max-width: 400px;
+}
+
+.guesser-container button {
+  padding: 10px 20px;
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.guesser-container button:hover {
+  background-color: #3700b3;
+}
