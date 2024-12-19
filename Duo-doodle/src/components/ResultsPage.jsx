@@ -7,8 +7,8 @@ const ResultsPage = () => {
   const navigate = useNavigate();
 
   const { correctAnswer, wrongAnswers } = location.state || {
-    correctAnswer: "Meadow",
-    wrongAnswers: ["grass", "flower", "daytime", "outside"],
+    correctAnswer: "Cat",
+    wrongAnswers: ["Bowl", "Ball", "Tire", "Animal"],
   };
 
   return (

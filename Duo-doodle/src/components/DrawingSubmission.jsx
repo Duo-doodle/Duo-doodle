@@ -4,10 +4,10 @@ import "./../styles/DrawingSubmission.css";
 
 const DrawingSubmission = () => {
   const Ref = useRef(null);
-  const [timer, setTimer] = useState(`1:00`);
+  const [timer, setTimer] = useState(`2:00`);
 
   useEffect(() => {
-    let timeRemaining = 60;
+    let timeRemaining = 120;
 
     const timeDecrement = () => {
       if (timeRemaining <= 0) {
